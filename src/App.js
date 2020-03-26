@@ -3,10 +3,10 @@ import AddTodo from './component/AddTodo';
 import TitleTodo from './component/TitleTodo'
 import TodoList from './component/TodoList'
 import './App.css';
-// import {library} from '@fortawesome/fontawesome-svg-core'
-// import {faTrash} from '@fortawesome/free-solid-svg-icons'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faTrash} from '@fortawesome/free-solid-svg-icons'
 
-// library.add(faTrash);
+library.add(faTrash);
 class App extends Component{
   state={
     todos:[ ]
