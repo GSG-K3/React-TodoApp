@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import AddTodo from './component/AddTodo';
-import TitleTodo from './component/TitleTodo'
-import TodoList from './component/TodoList'
-import DeleteTask from './component/DeleteTask'
-
-import './App.css';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import React, { Component } from "react";
+import AddTodo from "./component/AddTodo";
+import TitleTodo from "./component/TitleTodo";
+import TodoList from "./component/TodoList";
+import "./App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faTrash);
 class App extends Component {
@@ -16,38 +14,33 @@ class App extends Component {
 
   addTodoI = (todo) => {
     this.setState({
-      todos: [{
-        text: todo,
-        completed: false
-      }, ...this.state.todos]
+      todos: [
+        { id: Date.now(), text: todo, completed: false },
+        ...this.state.todos
+      ]
     });
     console.log(todo);
-
-
+    console.log(this.state.todos);
   };
 
-  deleteItem(key) {
-    const filteredItems = this.state.items.filter(item =>
-      item.key !== key);
+  deleteTodo = (id) => {
+    console.log(id);
+    const todoList = this.state.todos.filter((item) => {
+      return item.id !== id;
+    });
     this.setState({
-      items: filteredItems
-    })
-
-  }
-
+      todos: todoList
+    });
+  };
   render() {
     return (
       <div className="App">
         <TitleTodo />
         <AddTodo onSubmit={this.addTodoI} />
-        <TodoList todos={this.state.todos} />
-        <DeleteTask onSubmit={this.deleteItem} />
-
+        <TodoList todos={this.state.todos} onDelete={this.deleteTodo} />
       </div>
     );
-    // componentDidMount=()=>{
 
-    // }
   }
 }
 
