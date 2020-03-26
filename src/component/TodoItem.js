@@ -1,8 +1,16 @@
 import React,{Component} from 'react';
- class TodoItem extends Component{
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import '../TodoItem.css' 
+class TodoItem extends Component{
     render(){
         const{todo}=this.props;
-        return<div onClick={this.toggleTodo}> {todo.text}
+        return<div className='list' onClick={this.toggleTodo}>
+            <p>{todo.text}
+            <span>
+                <FontAwesomeIcon className='icons'icon='trash'/>
+            </span>
+            </p> 
+           
             
         </div>
     }

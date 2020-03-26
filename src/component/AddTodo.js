@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import '../AddTodo.css'
  class AddTodo extends Component{
     state={
         text:''
@@ -18,8 +19,8 @@ import React,{Component} from 'react';
     render(){
         return <div className='addTodoContainer'>
             <form onSubmit={(e)=>this.submitTodo(e)}>
-                <input id='addTodo'onChange={(e)=>this.inputChange(e)} type="text"></input>
-                <button  type="submit">Add</button>
+                <input className='InputText' id='addTodo'onChange={(e)=>this.inputChange(e)} type="text"></input>
+                <button className='SubmitButton' type="submit">Add</button>
             </form>
          
             </div>
